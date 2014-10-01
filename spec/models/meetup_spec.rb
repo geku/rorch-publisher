@@ -1,13 +1,28 @@
-# url = "https://api.meetup.com/2/events"
-#     params = {params: { key: MeetupClient::API_KEY,
-#                         sign: 'true',
-#                         group_urlname: 'rubyonrails-ch',
-#                         page: 1,
-#                         status: 'upcoming'}}
-#     response = RestClient.get(url, params)
-#     expect(response.code).to eq(200)
-#     events = JSON.parse(response)
-#     events["results"].each do |evt|
-#       time = Time.at(evt["time"]/1000)
-#       puts "#{time} #{evt["description"]}\n#{evt["event_url"]}"
-#     end
+require 'json'
+require 'hashie'
+require 'spec_helper'
+require_relative './../../meetup'
+
+describe Meetup do
+  describe '#event' do
+    let(:event) { Meetup.new.event(12345) }
+    let(:event_json) { JSON.parse(File.read("./spec/support/meetup.json")) }
+    let(:meetup_data) { Hashie::Mash.new(event_json) }
+    let(:event_time) { DateTime.new(2014, 10, 15, 18, 30, 0, "+2") }
+
+    before do
+      allow_any_instance_of(Meetup).to receive(
+        :meetup_event
+      ).and_return(
+        meetup_data
+      )
+    end
+
+    it 'has correct attributes' do
+      expect(event).to have_attributes(
+        time: event_time,
+        title: 'RailshÃ¶ck Lightning Talks'
+      )
+    end
+  end
+end

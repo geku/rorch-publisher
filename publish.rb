@@ -10,12 +10,9 @@ Dotenv.load
 Publisher::Techup.auth_key = ENV['TECHUP_AUTH_KEY']
 Meetup.api_key             = ENV['MEETUP_API_KEY']
 
-
-event = Meetup.new.event('184968772')
-
+event = Meetup.new.event(args[1])
 
 ap event
-
 
 # Demo code to publish event
 # desc = 'Wir führen "Lightning Talks" durch: Kurze, spontane Vorträge (5 bis maximal 20 Minuten) über ein Projekt, ein gem, eine Technologie, eine Erfahrung. Alle Teilnehmenden sind frei, etwas vorzustellen.

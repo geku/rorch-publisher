@@ -1,0 +1,37 @@
+{
+  "announced": false,
+  "created": 1387190633000,
+  "description": "<p>Wir fÃ¼hren \"Lightning Talks\" durch: Kurze, spontane VortrÃ¤ge (5 bis maximal 20 Minuten) Ã¼ber ein Projekt, ein gem, eine Technologie, eine Erfahrung. Alle Teilnehmenden sind frei, etwas vorzustellen.</p> <p>Wenn uns die Themen ausgehen oder 90 Minuten um sind, gehen wir in eine naheliegende Bar und diskutieren noch etwas weiter.</p>",
+  "event_url": "http://www.meetup.com/rubyonrails-ch/events/206130982/",
+  "group": {
+    "created": 1283442164000,
+    "group_lat": 47.380001068115234,
+    "group_lon": 8.539999961853027,
+    "id": 1700659,
+    "join_mode": "open",
+    "name": "Ruby on Rails Schweiz",
+    "urlname": "rubyonrails-ch",
+    "who": "Mitglieder"
+  },
+  "headcount": 0,
+  "id": "dtbnhhysnbtb",
+  "maybe_rsvp_count": 0,
+  "name": "RailshÃ¶ck Lightning Talks",
+  "status": "upcoming",
+  "time": 1413390600000,
+  "updated": 1412184160000,
+  "utc_offset": 7200000,
+  "venue": {
+    "address_1": "Konradstrasse 12",
+    "city": "ZÃ¼rich",
+    "country": "ch",
+    "id": 1659341,
+    "lat": 47.380183,
+    "lon": 8.536751,
+    "name": "local.ch",
+    "repinned": false
+  },
+  "visibility": "public",
+  "waitlist_count": 0,
+  "yes_rsvp_count": 3
+}
