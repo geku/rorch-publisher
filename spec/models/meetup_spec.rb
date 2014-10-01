@@ -6,8 +6,8 @@ require_relative './../../meetup'
 describe Meetup do
   describe '#event' do
     let(:event) { Meetup.new.event(12345) }
-    let(:event_json) { JSON.parse(File.read("./spec/support/meetup.json")) }
-    let(:meetup_data) { Hashie::Mash.new(event_json) }
+    let(:meetup_json) { JSON.parse(File.read("./spec/support/meetup.json")) }
+    let(:meetup_data) { Hashie::Mash.new(meetup_json) }
     let(:event_time) { DateTime.new(2014, 10, 15, 18, 30, 0, "+2") }
 
     before do
