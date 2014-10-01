@@ -1,4 +1,5 @@
 require 'jsoneur'
+require 'sanitize'
 require_relative 'event'
 
 Jsoneur.add('meetup_event', 'https://api.meetup.com') do |service|
@@ -12,17 +13,15 @@ class Meetup
   def event(id)
     event = Jsoneur['meetup_event'].get(event_id: id, key: self.class.api_key)
     venue = event.venue
-
-
-    # TODO strip HTML from description
+    description = Sanitize.fragment(event.description)
 
     Event.new(
       title: event.name,
-      description: event.description,
+      description: description,
       tags: ['ruby', 'rails', 'web'],
       location: "#{venue.name}, #{venue.address_1}, #{venue.city}",
       url: event.event_url,
-      time: DateTime.strptime(event.time.to_s,'%s')
+      time:  Time.at(event.time / 1000).to_datetime
     )
   end
 
