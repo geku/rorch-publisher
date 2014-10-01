@@ -21,7 +21,11 @@ describe Meetup do
     it 'has correct attributes' do
       expect(event).to have_attributes(
         time: event_time,
-        title: 'RailshÃ¶ck Lightning Talks'
+        title: 'Railshöck Lightning Talks',
+        description: a_string_including('Lightning Talks'),
+        location: 'local.ch, Konradstrasse 12, Zürich',
+        url: 'http://www.meetup.com/rubyonrails-ch/events/206130982/',
+        tags: %w{ruby rails web}
       )
     end
   end

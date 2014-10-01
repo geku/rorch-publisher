@@ -13,7 +13,7 @@ class Meetup
 
   def event(id)
     venue = meetup_event.venue
-    description = Sanitize.fragment(meetup_event.description)
+    description = Sanitize.fragment(meetup_event.description).strip
 
     Event.new(
       title: meetup_event.name,
