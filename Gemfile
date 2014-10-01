@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'mechanize'
 gem 'dotenv'
 gem 'jsoneur'
+gem 'sanitize'
 gem 'pry'
 
 group :test, :development do

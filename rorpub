@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require_relative 'publish'
+
+if ARGV.count < 1  || ARGV.count > 1
+  puts '', "Error: wrong number of arguments. Usage:", ''
+  puts "    rorpub <Meetup ID>", ''
+  exit(1)
+end
+
+publish = Publish.new
+event_or_url = publish.for(ARGV.first)
+
+if event_or_url.is_a?(Event)
+  puts "Fetched Event: "
+  puts event_or_url.to_s
+else
+  puts "Event was published on #{event_or_url}"
+end

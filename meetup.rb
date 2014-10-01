@@ -1,4 +1,5 @@
 require 'jsoneur'
+require 'sanitize'
 require_relative 'event'
 
 class Meetup
@@ -12,10 +13,11 @@ class Meetup
 
   def event(id)
     venue = meetup_event.venue
+    description = Sanitize.fragment(meetup_event.description)
 
     Event.new(
       title: meetup_event.name,
-      description: meetup_event.description,
+      description: description,
       tags: ['ruby', 'rails', 'web'],
       location: "#{venue.name}, #{venue.address_1}, #{venue.city}",
       url: meetup_event.event_url,
@@ -30,5 +32,4 @@ class Meetup
   class << self
     attr_accessor :api_key
   end
-
 end
