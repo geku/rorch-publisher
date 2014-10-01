@@ -23,6 +23,19 @@ class Event
     tags.join(', ')
   end
 
+  def to_s
+    "
+  Title:    #{title}
+  Location: #{location}
+  Time:     #{time}
+  URL:      #{url}
+  Tags:     #{tags.join(', ')}
+  Location: #{location}
+
+  #{description}
+  "
+  end
+
   private
 
     def assign_geo_location

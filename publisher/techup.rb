@@ -21,7 +21,7 @@ module Publisher
 
       form['event[location]'] = event.location
       form['event[geolocation]'] = event.geo_location
-      
+
       form['is_free'] = 'yes'
       form['event[twitter]'] = 'railsCH'
 
