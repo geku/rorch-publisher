@@ -12,20 +12,21 @@ class Meetup
   end
 
   def event(id)
-    venue = meetup_event.venue
-    description = Sanitize.fragment(meetup_event.description).strip
+    mevent = meetup_event(id)
+    venue = mevent.venue
+    description = Sanitize.fragment(mevent.description).strip
 
     Event.new(
-      title: meetup_event.name,
+      title: mevent.name,
       description: description,
       tags: ['ruby', 'rails', 'web'],
       location: "#{venue.name}, #{venue.address_1}, #{venue.city}",
-      url: meetup_event.event_url,
-      time: Time.at(meetup_event.time / 1000).to_datetime
+      url: mevent.event_url,
+      time: Time.at(mevent.time / 1000).to_datetime
     )
   end
 
-  def meetup_event
+  def meetup_event(id)
     @data ||= Jsoneur['meetup_event'].get(event_id: id, key: self.class.api_key)
   end
 

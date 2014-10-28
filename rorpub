@@ -9,7 +9,7 @@ if ARGV.count < 1  || ARGV.count > 1
 end
 
 publish = Publish.new
-event_or_url = publish.for(ARGV.first)
+event_or_url = publish.for(ARGV.first, true)
 
 if event_or_url.is_a?(Event)
   puts "Fetched Event: "
